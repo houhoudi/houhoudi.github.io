@@ -150,6 +150,8 @@ Gridea 主页
         
         
         
+          <li><a data-pjax href="https://houhoudi.github.io/bber">哔哔</a></li>
+          
           
         <li><a data-pjax href="https://houhoudi.github.io/friends">友链</a></li>
 
@@ -264,7 +266,7 @@ Gridea 主页
                         src='https://houhoudi.github.io/media/images/music.png' alt="音乐播放器" class="musicbtn"></i></a>
         </div>
         <div class="avatar-border">
-            <img src="https://houhoudi.github.io/images/avatar.png?v=1642035095561" class="avatar">
+            <img src="https://houhoudi.github.io/images/avatar.png?v=1642035566630" class="avatar">
         </div>
         <div class="sitename">Gridea</div>
         <span class="description" data-text='["温故而知新"]'>&nbsp;</span>
@@ -279,7 +281,7 @@ Gridea 主页
         
         <div class="search">
             <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
-            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <input type="text" class="search-input" placeholder="搜索 ⚆_⚆ つ♡">
             <div class="search-results"></div>
         </div>
         
@@ -337,6 +339,12 @@ Gridea 主页
 
         
         
+            <div class="mchocie description">
+                <a data-pjax href="https://houhoudi.github.io/bber" class="menubutton" style="margin-right: 15px;">
+                    <i><img class="icon menuicon" src="" alt="哔哔"></i>&nbsp;<span data-text="哔哔">哔哔</span>
+                </a>
+            </div>
+        
         
         <div class="mchocie description">
             <a data-pjax href="https://houhoudi.github.io/friends" class="menubutton" style="margin-right: 15px;">
@@ -375,6 +383,10 @@ Gridea 主页
                 href="https://github.com/850552586/gridea-theme-fog">Fog</a>
             <div>
                 
+                <div id="sitegotimeDate">载入天数...</div>
+                <div id="sitegotimes">载入时分秒...</div>
+                <div id="cussitetime" style="display:none">02/22/2020</div>
+                
             </div>
             <div>
                 
@@ -397,6 +409,38 @@ Gridea 主页
 
     </div>
 </body>
+
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+
+    let intervalId = setInterval("createtime()", 250);
+</script>
 
     </div>
 
@@ -452,7 +496,7 @@ Gridea 主页
     
     
     <script>
-        let shareChoice = false
+        let shareChoice = true
     </script>
     
     
@@ -514,7 +558,7 @@ Gridea 主页
     get();
 
     function get() {
-        var t = JSON.parse('[]');
+        var t = JSON.parse('[{"author":"","img":"https://s2.loli.net/2022/01/13/nUuV8MAlsWhBHSo.png","text":"临界望穿明月看一场雪","time":""}]');
         talkindex = t.length - 1;
         for (var i = 0; i <= t.length - 1; i++) {
             var d = {};
@@ -1001,6 +1045,25 @@ menulist.eq(i).show();
             </ul>
         </div>
         
+            <div class="shareContainer">
+                <div class="share" style="height:30px;background: white;">
+                    <a class="qq" href=""><i><img class="shareicon"
+                                src="https://houhoudi.github.io/media/images/qqs.png" alt=""></i></a>
+                    <a class="wechat" href=""><i><img class="shareicon"
+                                src="https://houhoudi.github.io/media/images/wechats.png" alt=""></i></a>
+                    <a class="weibo" href=""><i><img class="shareicon"
+                                src="https://houhoudi.github.io/media/images/weibos.png" alt=""></i></a>
+                    <a class="qzone" href=""><i><img class="shareicon"
+                                src="https://houhoudi.github.io/media/images/qzones.png" alt=""></i></a>
+                    <a class="douban" href=""><i><img class="shareicon"
+                                src="https://houhoudi.github.io/media/images/doubans.png" alt=""></i></a>
+                    <a class="facebook" href=""><i><img class="shareicon"
+                                src="https://houhoudi.github.io/media/images/facebooks.png" alt=""></i></a>
+                    <a class="twitter" href=""><i><img class="shareicon"
+                                src="https://houhoudi.github.io/media/images/twitter.png" alt=""></i></a>
+                </div>
+            </div>
+            
         <div id="otherpost">
             
             
