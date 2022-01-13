@@ -264,7 +264,7 @@ Gridea 主页
                         src='https://houhoudi.github.io/media/images/music.png' alt="音乐播放器" class="musicbtn"></i></a>
         </div>
         <div class="avatar-border">
-            <img src="https://houhoudi.github.io/images/avatar.png?v=1642032594056" class="avatar">
+            <img src="https://houhoudi.github.io/images/avatar.png?v=1642034820217" class="avatar">
         </div>
         <div class="sitename">Gridea</div>
         <span class="description" data-text='["温故而知新"]'>&nbsp;</span>
@@ -389,7 +389,7 @@ Gridea 主页
                 </div>
                 
             </div>
-            <div class="copyright" style="color:white;text-align: center;">Copyright © 2020  备案号: 鄂ICP备...号
+            <div class="copyright" style="color:white;text-align: center;">
             </div>
         </div>
 
@@ -447,7 +447,7 @@ Gridea 主页
 <!------ 根据自定义配置声明变量👇 --------------------->
     
     <script>
-        let postnumChoice = false
+        let postnumChoice = true
     </script>
     
     
@@ -705,13 +705,13 @@ Gridea 主页
                 shareInit();
             if (donateChoice)
                 donateInit();
-            if ("default" == "default"&&!commentsHide) {
+            if ("valine" == "default"&&!commentsHide) {
                 $("#comment").hide()
                 commentsHide = true
             }
             lazyload();
             codeinit();
-            if ("default" == "twikoo") {
+            if ("valine" == "twikoo") {
                 //twikoo头像更换
                 setTimeout(replaceAvatar, 3000);
                 setTimeout(replaceAvatar, 8000); //部分博主站点速度加载过慢，再添加一个延迟
@@ -958,6 +958,13 @@ menulist.eq(i).show();
                 <div id="pl" style="display:none">https://houhoudi.github.io/post/hello-gridea/</div>
                 <div id="rootaddr" style="display:none">https://houhoudi.github.io</div>
                 
+                    
+                    <span id="hotnum">
+                        <h4><i class="fa fa-eye" aria-hidden="true" style="color: #FF8C00;"></i>&nbsp;&nbsp;热度</i>: <i
+                                class="hotnum">loading...</i></h4>
+                    </span>
+                    
+                
             </div>
             <div class="text ">
                 <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
@@ -987,7 +994,7 @@ menulist.eq(i).show();
             
             <div class="postfooter">
                 <ul class="post-copyright">
-                    <li><strong>文章作者：</strong></li>
+                    <li><strong>文章作者：</strong>侯迪</li>
             <li><strong>原文链接：</strong>https://houhoudi.github.io/post/hello-gridea/</li>
             <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用<i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA
                 许可协议。转载请注明出处！</li>
@@ -1034,6 +1041,37 @@ menulist.eq(i).show();
                     <div id="comment" class="comment">
                         <div class="commentcontainer">
                             
+                                
+                                    
+        <div id="vcomments">
+        </div>
+        <script>
+            var valine = new Valine();
+            var curpath = window.location.pathname;
+            if (curpath[curpath.length - 1] != '/')
+                curpath += '/'
+            valine.init({
+                el: '#vcomments',
+                appId: 'DqLRKyEWv9vHKYCaL1igLryU-MdYXbMMI',
+                appKey: 'HNsoLgC1qsLB4ztAR28ChM27',
+                avatar: 'retro',
+                pageSize: 10,
+                placeholder: '既然来了，何不畅所欲言呢？',
+                recordIP: true,
+                path: curpath //[重点] 记得添加path路径
+            });
+        </script>
+        <script type="text/javascript">
+            var jrsc = '既然来了，何不畅所欲言呢？';
+            jinrishici.load(function (result) {
+                // 自己的处理逻辑
+                jrsc = result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin
+                    .dynasty + " · " + result.data.origin.author;
+            });
+        </script>
+
+
+                                    <div class="clear"></div>
                                 
                             
                         </div>
